@@ -1,108 +1,96 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaermaksan</title>
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f4f4f4;
-        text-align: center;
-        color: #222;
-    }
-
-    header {
-        background: #111;
-        color: white;
-        padding: 40px 20px;
-    }
-
-    h1 {
-        margin: 0;
-        font-size: 42px;
-    }
-
-    .phone {
-        margin-top: 10px;
-        font-size: 20px;
-    }
-
-    .buttons {
-        margin: 30px 0;
-    }
-
-    .buttons a {
-        display: inline-block;
-        margin: 10px;
-        padding: 14px 24px;
-        text-decoration: none;
-        color: white;
-        border-radius: 10px;
-        font-size: 18px;
-        transition: 0.3s;
-    }
-
-    .facebook {
-        background: #1877f2;
-    }
-
-    .instagram {
-        background: #e1306c;
-    }
-
-    .whatsapp {
-        background: #25d366;
-    }
-
-    .buttons a:hover {
-        opacity: 0.85;
-    }
-
-    .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .gallery img {
-        width: 300px;
-        max-width: 90%;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    footer {
-        margin: 30px 0;
-        color: #666;
-    }
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+header{
+    padding:30px;
+}
+.buttons a{
+    display:inline-block;
+    margin:10px;
+    padding:12px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+}
+.facebook{background:#1877f2;}
+.instagram{background:#e1306c;}
+.whatsapp{background:#25d366;}
+.slider-container{
+    position:relative;
+    width:90%;
+    margin:auto;
+    overflow:hidden;
+}
+.slider{
+    display:flex;
+    overflow-x:auto;
+    scroll-behavior:smooth;
+}
+.slider::-webkit-scrollbar{
+    display:none;
+}
+.slider img{
+    width:400px;
+    margin:10px;
+    border-radius:15px;
+    flex-shrink:0;
+}
+button{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:white;
+    color:black;
+    border:none;
+    font-size:30px;
+    padding:10px 15px;
+    cursor:pointer;
+    border-radius:10px;
+}
+.prev{
+    left:0;
+}
+.next{
+    right:0;
+}
 </style>
-</head>
-<body>
-
 <header>
     <h1>Kaermaksan</h1>
-    <div class="phone">📞 +90 501 561 76 90</div>
+    <h3>📞 +90 501 561 76 90</h3>
 </header>
-
 <div class="buttons">
-    <a class="facebook" href="https://facebook.com" target="_blank">Facebook</a>
-    <a class="instagram" href="https://instagram.com" target="_blank">Instagram</a>
-    <a class="whatsapp" href="https://wa.me/905015617690" target="_blank">WhatsApp</a>
+    <a class="facebook" href="https://facebook.com">Facebook</a>
+    <a class="instagram" href="https://instagram.com">Instagram</a>
+    <a class="whatsapp" href="https://wa.me/905015617690">WhatsApp</a>
 </div>
-
-<div class="gallery">
-    <img src="resim1.jpg" alt="Resim 1">
-    <img src="resim2.jpg" alt="Resim 2">
-    <img src="resim3.jpg" alt="Resim 3">
+<div class="slider-container">
+    <button class="prev" onclick="scrollLeftSlider()">❮</button>
+    <div class="slider" id="slider">
+        <img src="resim1.jpg">
+        <img src="resim2.jpg">
+        <img src="resim3.jpg">
+    </div>
+    <button class="next" onclick="scrollRightSlider()">❯</button>
 </div>
-
-<footer>
-    © 2026 Kaermaksan
-</footer>
-
-</body>
-</html>
+<script>
+function scrollLeftSlider(){
+    document.getElementById('slider')
+    .scrollBy({
+        left:-420,
+        behavior:'smooth'
+    });
+}
+function scrollRightSlider(){
+    document.getElementById('slider')
+    .scrollBy({
+        left:420,
+        behavior:'smooth'
+    });
+}
+</script>
